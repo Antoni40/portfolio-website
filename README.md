@@ -1,2 +1,2 @@
 # portfolio-website
-Personal portfolio website to demonstrate my skills and future projects.
+Personal portfolio website to showcase my skills and projects.
