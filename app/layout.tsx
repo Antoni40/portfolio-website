@@ -23,8 +23,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pl"
+      suppressHydrationWarning
       className={`${geistSans.variable} h-full antialiased`}
     >
+      <head>
+        <script>
+          const isDarkMode = localStorage.getItem("theme") === "dark";
+          const isSystemDarkMode = localStorage.getItem("theme") == null && 
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+          isDarkMode || isSystemDarkMode ? 
+            document.documentElement.classList.add("dark") :
+            document.documentElement.classList.remove("dark");
+        </script>
+      </head>
       <body className="min-h-full flex flex-col font-sans text-text-primary">
         <Navbar />
         <main>

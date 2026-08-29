@@ -1,7 +1,7 @@
 const variants = {
   primary: "bg-primary text-white p-4 rounded-lg border-2 border-border hover:bg-primary-hover",
   secondary: "bg-surface text-text-primary border border-border p-4 rounded-lg border-2 border-border hover:bg-background",
-  borderless: "bg-transparent text-text-primary hover:text-white"
+  borderless: "bg-transparent text-text-primary hover:text-primary cursor-pointer"
 };
 
 type ButtonProps = {
