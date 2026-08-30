@@ -27,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} h-full antialiased`}
     >
       <head>
+        {/*Not the best think in the world but works.*/}
         <script>
           const isDarkMode = localStorage.getItem("theme") === "dark";
           const isSystemDarkMode = localStorage.getItem("theme") == null && 
