@@ -1,5 +1,5 @@
 import Hero from "./components/sections/Hero";
-import Container from "./components/layout-commons/Container";
+import Container from "./components/layout/Container";
 import Projects from "./components/sections/Projects";
 import Skills from "./components/sections/Skills";
 import About from "./components/sections/About";
@@ -8,8 +8,8 @@ import Contact from "./components/sections/Contact";
 export default function Home() {
   return (
     <>
-      <main className="flex justify-center w-full">
-        <div className="w-full md:w-8/10 mt-8">
+      <main className="flex w-full justify-center">
+        <div className="mt-8 w-full md:w-8/10">
           <Container>
             <Hero />
           </Container>

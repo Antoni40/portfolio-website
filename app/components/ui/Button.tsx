@@ -1,23 +1,31 @@
 const variants = {
-  primary: "bg-primary text-white p-4 rounded-lg border-2 border-border hover:bg-primary-hover",
-  secondary: "bg-surface text-text-primary border border-border p-4 rounded-lg border-2 border-border hover:bg-background",
-  borderless: "bg-transparent text-text-primary hover:text-primary cursor-pointer"
+  primary:
+    "bg-primary text-white p-4 rounded-lg border border-border hover:bg-primary-hover",
+  secondary:
+    "bg-surface text-text-primary border border-border p-4 rounded-lg border border-border hover:bg-background",
+  borderless:
+    "bg-transparent text-text-primary hover:text-primary cursor-pointer",
 };
 
 type ButtonProps = {
-  text: string | "";
+  text?: string;
   variant: keyof typeof variants;
   children?: React.ReactNode;
-  onClick?: () => void;
-}
+  onClickHandler?: () => void;
+};
 
-export default function Button({ text, variant, children, onClick }: ButtonProps) {
+export default function Button({
+  text,
+  variant,
+  children,
+  onClickHandler,
+}: ButtonProps) {
   return (
-    <button 
-      className={`font-bold ${variants[variant]}`}
-      onClick={onClick}
+    <button
+      className={`font-semibold ${variants[variant]}`}
+      onClick={onClickHandler}
     >
-      { text.length > 0 ? text : children }
+      {text === null ? text : children}
     </button>
   );
 }
