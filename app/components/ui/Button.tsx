@@ -22,10 +22,11 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`font-semibold ${variants[variant]}`}
+      className={`font-semibold ${variants[variant]} w-fit`}
       onClick={onClickHandler}
     >
-      {text === null ? text : children}
+      {text}
+      {children}
     </button>
   );
 }

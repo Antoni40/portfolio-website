@@ -9,19 +9,20 @@ import ButtonLink from "../ui/ButtonLink";
 
 export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const menu = useRef<HTMLDivElement | null>(null); 
+  const menu = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!isMobileMenuOpen) return;
 
-    function outOfMenuClick(event : PointerEvent) {
-      !menu.current?.contains(event.target as Node) && setIsMobileMenuOpen(false); 
+    function outOfMenuClick(event: PointerEvent) {
+      !menu.current?.contains(event.target as Node) &&
+        setIsMobileMenuOpen(false);
     }
-      document.addEventListener('pointerdown', outOfMenuClick);
+    document.addEventListener("pointerdown", outOfMenuClick);
     return () => {
-      document.removeEventListener('pointerdown', outOfMenuClick);
-    }
-  }, [isMobileMenuOpen])
+      document.removeEventListener("pointerdown", outOfMenuClick);
+    };
+  }, [isMobileMenuOpen]);
 
   function toggleTheme() {
     const isDark = document.documentElement.classList.toggle("dark");
@@ -30,10 +31,13 @@ export default function NavBar() {
 
   return (
     <>
-      <nav ref={menu} className="bg-surface border-border relative border-b p-4">
+      <nav
+        ref={menu}
+        className="bg-surface border-border relative border-b p-4"
+      >
         <div className="hidden w-full items-center justify-between md:flex">
           <div>
-            <ButtonLink text="Antek Lubomski" href="./" variant="brand"/>
+            <ButtonLink text="Antek Lubomski" href="./" variant="brand" />
           </div>
           <div>
             <ul className="flex space-x-4">
@@ -47,7 +51,11 @@ export default function NavBar() {
                 <ButtonLink text="Kontakt" href="#kontakt" variant="text" />
               </li>
               <li>
-                <Button aria-label="Zmień motyw" variant="borderless" onClickHandler={toggleTheme}>
+                <Button
+                  aria-label="Zmień motyw"
+                  variant="borderless"
+                  onClickHandler={toggleTheme}
+                >
                   <span className="hidden dark:inline">
                     <FontAwesomeIcon icon={faSun} />
                   </span>
@@ -61,7 +69,7 @@ export default function NavBar() {
         </div>
         <div className="flex w-full items-center justify-between md:hidden">
           <div>
-            <ButtonLink text="Antek" href="./" variant="brand"/>
+            <ButtonLink text="Antek" href="./" variant="brand" />
           </div>
           <div>
             <Button
@@ -77,22 +85,52 @@ export default function NavBar() {
             </Button>
           </div>
           {isMobileMenuOpen && (
-            <div className="absolute inset-x-0 top-full z-20" onBlur={() => {setIsMobileMenuOpen(false)}}>
+            <div
+              className="absolute inset-x-0 top-full z-20"
+              onBlur={() => {
+                setIsMobileMenuOpen(false);
+              }}
+            >
               <ul
                 id="mobile-menu"
-                className="border-border bg-surface flex items-center justify-between gap-4 border-b p-4 border-t"
+                className="border-border bg-surface flex items-center justify-between gap-4 border-t border-b p-4"
               >
                 <li>
-                  <ButtonLink text="Projekty" href="#projekty" variant="text" onClickHandler={() => {setIsMobileMenuOpen(false)}}/>
+                  <ButtonLink
+                    text="Projekty"
+                    href="#projekty"
+                    variant="text"
+                    onClickHandler={() => {
+                      setIsMobileMenuOpen(false);
+                    }}
+                  />
                 </li>
                 <li>
-                  <ButtonLink text="O mnie" href="#o-mnie" variant="text" onClickHandler={() => {setIsMobileMenuOpen(false)}}/>
+                  <ButtonLink
+                    text="O mnie"
+                    href="#o-mnie"
+                    variant="text"
+                    onClickHandler={() => {
+                      setIsMobileMenuOpen(false);
+                    }}
+                  />
                 </li>
                 <li>
-                  <ButtonLink text="Kontakt" href="#kontakt" variant="text" onClickHandler={() => {setIsMobileMenuOpen(false)}}/>
+                  <ButtonLink
+                    text="Kontakt"
+                    href="#kontakt"
+                    variant="text"
+                    onClickHandler={() => {
+                      setIsMobileMenuOpen(false);
+                    }}
+                  />
                 </li>
                 <li>
-                  <Button aria-label="Zmień motyw" variant="borderless" onClickHandler={toggleTheme}>
+                  <Button
+                    aria-label="Zmień motyw"
+                    variant="borderless"
+                    onClickHandler={toggleTheme}
+                  >
                     <span className="hidden dark:inline">
                       <FontAwesomeIcon icon={faSun} />
                     </span>

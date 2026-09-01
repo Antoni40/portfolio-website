@@ -2,24 +2,43 @@ import Link from "next/link";
 
 const variants = {
   primary:
-    "bg-primary text-white hover:bg-primary-hover rounded-lg p-4 border border-border font-semibold",
+    "bg-primary text-background hover:bg-primary-hover rounded-lg p-4 border border-border font-semibold",
   secondary:
     "bg-surface text-text-primary border border-border hover:bg-background  rounded-lg p-4 border border-border font-semibold",
   text: "bg-transparent text-text-primary hover:text-primary font-semibold",
-  brand: "bg-transparent text-text-primary hover:text-primary font-bold text-2xl"
+  brand:
+    "bg-transparent text-text-primary hover:text-primary font-bold text-2xl",
 };
 
 type ButtonLinkProps = {
   href: string;
-  text: string;
+  text?: string;
   variant: keyof typeof variants;
+  children?: React.ReactNode;
+  rel?: string;
+  target?: string;
   onClickHandler?: () => void;
 };
 
-export default function ButtonLink({ href, text, variant, onClickHandler }: ButtonLinkProps) {
+export default function ButtonLink({
+  href,
+  text,
+  variant,
+  children,
+  rel,
+  target,
+  onClickHandler,
+}: ButtonLinkProps) {
   return (
-    <Link href={href} className={`${variants[variant]}`} onClick={onClickHandler}>
+    <Link
+      href={href}
+      className={`${variants[variant]} w-fit`}
+      onClick={onClickHandler}
+      rel={rel}
+      target={target}
+    >
       {text}
+      {children}
     </Link>
   );
 }
