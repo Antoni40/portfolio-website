@@ -2,18 +2,12 @@ import Image from "next/image"
 import ButtonLink from "../ui/ButtonLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import type { Project } from "@/types/types";
 
-interface Project {
-  title: string;
-  description: string;
-  imageUrl: string;
-  link: string;
-  tags: string[];
-}
-
-export default function ProjectCard({project} : {project: Project}) {
+export default function ProjectCard({project} : {project: Project[]}) {
   return (
-    <article className="w-full flex flex-col gap-4 rounded-lg border border-border p-4">
+    project.map((project) => (
+    <article key={project.title} className="w-full flex flex-col gap-4 rounded-lg border border-border p-4">
       <div className="w-full overflow-hidden rounded-lg">
         <Image
           src={project.imageUrl}
@@ -37,5 +31,6 @@ export default function ProjectCard({project} : {project: Project}) {
           <ButtonLink href={project.link} variant="primary" text="Zobacz na GitHubie"><FontAwesomeIcon icon={faGithub} /></ButtonLink>
         </div>
     </article>
+    ))
   )
 }

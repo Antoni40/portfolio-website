@@ -8,7 +8,7 @@ export default function About() {
           Kim jestem i czym się zajmuję, a także co lubię robić w wolnym czasie.
         </p>
       </div>
-      <div className="my-4">
+      <div className="my-4 w-1/2">
         <p className="text-pretty">
           Obecnie chodzę do technikum na kierunku technik programista. Uczę się w zakresie programowania różnych aplikacji i pisania algorytmów. 
           Lubię rozwiązywać problemy i szybko adaptuję się do nich. W wolnych chwilach jestem aktywny lubię ćwiczyć siłowo i biegać.
